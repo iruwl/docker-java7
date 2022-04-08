@@ -17,8 +17,10 @@ path-exclude /usr/share/linda/*" \
 
 # Update + install
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends openjdk-7-jdk
+    && apt-get install -y --no-install-recommends openjdk-7-jdk \
+    && apt-get install -y --no-install-recommends supervisor
 
+RUN mkdir -p /var/log/supervisor
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 ENV JRE_HOME /usr/lib/jvm/java-7-openjdk-amd64/jre
 
